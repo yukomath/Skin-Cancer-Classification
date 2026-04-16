@@ -8,11 +8,7 @@ All project files are available in the following folder:
 This project aims to build a deep learning model for classifying dermatoscopic images of skin lesions into seven categories.
 Since melanoma is a malignant tumor, missing a melanoma case (false negative) can have serious medical consequences. Therefore, ***recall*** is used as the primary evaluation metric, with a particular focus on melanoma recall.
 
-The original challenge [(LINK)](https://challenge.isic-archive.com/landing/2018/) provides only training data, while the test set remains private. In this project, we instead use the dataset available on [Kaggle](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000) and split it into:
-
-- Training set: 70%
-- Validation set: 15%
-- Test set: 15%
+[The original challenge](https://challenge.isic-archive.com/landing/2018/) provides only training data, while the test set remains private. In this project, we instead use the dataset available on [Kaggle](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000) and split it into Training set 70%, Validation set 15% and Test set 15%.
 
 To prevent data leakage, the split is performed at the lesion level, ensuring that images from the same lesion do not appear across different subsets.
 
