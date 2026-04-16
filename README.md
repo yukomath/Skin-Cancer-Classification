@@ -21,12 +21,21 @@ These techniques help improve the model’s ability to detect melanoma while mai
 
 ## Data
 Original Challenge is [here](https://challenge.isic-archive.com/landing/2018/)
-Dataset: HAM10000 (Skin Cancer MNIST)
+Dataset: HAM10000 ("Human Against Machine with 10000 training images")-Skin Cancer MNIST
 Source: Kaggle (based on the original challenge)
 
 ## Detaset
-Number of classes: 7
 
+Number of classes: 7
+Actinic keratoses and intraepithelial carcinoma / 
+- akiec: Bowen's disease
+- bcc: basal cell carcinoma 
+- bkl: benign keratosis-like lesions (solar lentigines / 
+seborrheic keratoses and lichen-planus like keratoses) 
+- df: dermatofibroma 
+- mel: melanoma 
+- nv: melanocytic nevi 
+- vasc: vascular lesions (angiomas, angiokeratomas, pyogenic granulomas and hemorrhage)
 
 データ - Skin Cancer HAM 2000 - Original Challenge is here - 悪性と良性、メラノーマに着目すること - トータルの数と７種類それぞれの数 - アンバランス性の説明 データの分割と処理 - Trainingデータのみ公開されており、testデータは非公開です。本プロジェクトではKaggleからデータを用い、trainデータを、train70％, Evaluation15％, test15％の割合で分割して使います - training data には、 Augumentation などの処理をしています。 
 
