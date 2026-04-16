@@ -4,13 +4,11 @@ Skin Cancer Classification
 All project files are available in the following folder:
 [Project folder](https://drive.google.com/drive/folders/1STEpBd5-sPoryYCv_VT3BjC2v0yZ1zlg?usp=share_link) 
 
-本プロジェクトでは、７種類の皮膚の腫瘍の画像データを分類するモデルをディープラーニングの手法を用いて作成しました。メラノーマは悪性なので、見落としを防ぐために、評価指数としてRecallを用いました。 Original Challengeはここ(リンク)で、Trainingデータのみ公開されており、testデータは非公開です。本プロジェクトではKaggleからデータを用い、trainデータを、train70％, Evaluation15％, test15％の割合で分割して使いました。分割はデータリークを防ぐために、lesion数での割合で分割しています。データはクラスごとにアンバランスで、悪性の腫瘍、特にメラノーマはデータ数が少ないです。アンバランスを修正するために、Samplerを用いたのと、 loss functionに重みをつけて評価しています。 
-
 ## Overview
 This project aims to build a deep learning model for classifying dermatoscopic images of skin lesions into seven categories.
-Since melanoma is a malignant tumor, missing a melanoma case (false negative) can have serious medical consequences. Therefore, recall is used as the primary evaluation metric, with a particular focus on melanoma recall.
+Since melanoma is a malignant tumor, missing a melanoma case (false negative) can have serious medical consequences. Therefore, ***recall*** is used as the primary evaluation metric, with a particular focus on melanoma recall.
 
-The original challenge (link) provides only training data, while the test set remains private. In this project, we instead use the dataset available on Kaggle and split it into:
+The original challenge [(LINK)](https://challenge.isic-archive.com/landing/2018/) provides only training data, while the test set remains private. In this project, we instead use the dataset available on [Kaggle](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000) and split it into:
 
 - Training set: 70%
 - Validation set: 15%
@@ -20,8 +18,8 @@ To prevent data leakage, the split is performed at the lesion level, ensuring th
 
 The dataset is highly imbalanced, with a large number of benign samples and relatively few malignant cases, especially melanoma. To address this imbalance, we apply:
 
-- a Weighted Random Sampler to rebalance the training data distribution
-- a weighted loss function to emphasize minority classes during training
+- a ***Weighted Random Sampler*** to rebalance the training data distribution
+- a ***weighted loss function*** to emphasize minority classes during training
 
 These techniques help improve the model’s ability to detect melanoma while maintaining overall performance.
 
@@ -29,6 +27,8 @@ These techniques help improve the model’s ability to detect melanoma while mai
 Original Challenge is [here](https://challenge.isic-archive.com/landing/2018/)
 Dataset: HAM10000 (Skin Cancer MNIST)
 Source: Kaggle (based on the original challenge)
+
+## Detaset
 Number of classes: 7
 
 
