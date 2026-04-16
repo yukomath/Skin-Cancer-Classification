@@ -27,7 +27,6 @@ Source: Kaggle (based on the original challenge)
 ## Detaset
 
 Number of classes: 7
-Actinic keratoses and intraepithelial carcinoma / 
 - akiec: Bowen's disease
 - bcc: basal cell carcinoma 
 - bkl: benign keratosis-like lesions (solar lentigines / 
