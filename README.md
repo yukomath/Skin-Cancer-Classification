@@ -6,25 +6,29 @@ All project files are available in the following folder:
 
 ## Overview
 This project aims to build a deep learning model for classifying dermatoscopic images of skin lesions into seven categories.
-Since melanoma is a malignant tumor, missing a melanoma case (false negative) can have serious medical consequences. Therefore, ***recall*** is used as the primary evaluation metric, with a particular focus on melanoma recall.
+Since melanoma is a malignant tumor, missing a melanoma case (false negative) can have serious medical consequences. Therefore, ***recall*** is used as the primary evaluation metric, with a particular focus on ***melanoma recall***.
 
-[The original challenge](https://challenge.isic-archive.com/landing/2018/) provides only training data, while the test set remains private. In this project, we instead use the dataset available on [Kaggle](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000) and split it into Training set 70%, Validation set 15% and Test set 15%.
+[The original challenge](https://challenge.isic-archive.com/landing/2018/) provides only training data, while the test set remains private. In this project, we instead use the dataset available on [Kaggle](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000) and split it into training set 70%, validation set 15% and test set 15%.
 
 To prevent data leakage, the split is performed at the lesion level, ensuring that images from the same lesion do not appear across different subsets.
 
 The dataset is highly imbalanced, with a large number of benign samples and relatively few malignant cases, especially melanoma. To address this imbalance, we apply:
 
-- a ***Weighted Random Sampler*** to rebalance the training data distribution
+- a ***weighted random sampler*** to rebalance the training data distribution
 - a ***weighted loss function*** to emphasize minority classes during training
 
 These techniques help improve the model’s ability to detect melanoma while maintaining overall performance.
 
 ## Data
 Original Challenge is [here](https://challenge.isic-archive.com/landing/2018/)
+
 Dataset: HAM10000 ("Human Against Machine with 10000 training images")-Skin Cancer MNIST
-Source: Kaggle (based on the original challenge)
+
+Source: [Kaggle](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000)  (based on the original challenge)
 
 ## Detaset
+Number of picture:
+Number of lesion:
 
 Number of classes: 7
 - akiec: Bowen's disease
@@ -35,6 +39,21 @@ seborrheic keratoses and lichen-planus like keratoses)
 - mel: melanoma 
 - nv: melanocytic nevi 
 - vasc: vascular lesions (angiomas, angiokeratomas, pyogenic granulomas and hemorrhage)
+
+Number of image of each class
+- dx	
+- nv	6705
+- mel	1113
+- bkl	1099
+- bcc	514
+- akiec	327
+- vasc	142
+- df	115
+
+<img width="704" height="393" alt="image" src="https://github.com/user-attachments/assets/35336533-d17b-46fb-8f19-8ed7b1d001bc" />
+
+
+Explanation how unbalanced
 
 データ - Skin Cancer HAM 2000 - Original Challenge is here - 悪性と良性、メラノーマに着目すること - トータルの数と７種類それぞれの数 - アンバランス性の説明 データの分割と処理 - Trainingデータのみ公開されており、testデータは非公開です。本プロジェクトではKaggleからデータを用い、trainデータを、train70％, Evaluation15％, test15％の割合で分割して使います - training data には、 Augumentation などの処理をしています。 
 
