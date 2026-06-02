@@ -18,12 +18,24 @@ The dataset is highly imbalanced, with a large number of benign samples and rela
 
 These techniques help improve the model’s ability to detect melanoma while maintaining overall performance.
 
-## Data
+## Dataset
+The dataset used in this project is HAM10000 (Skin Cancer MNIST), originally introduced in the ISIC 2018 Challenge.
+Original Challenge: https://challenge.isic-archive.com/landing/2018/
+Dataset: [HAM10000 ("Human Against Machine with 10000 training images")-Skin Cancer MNIST in Kaggle
+ ](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000)
+
+### Dataset Overview
+The dataset consists of 7 skin lesion classes with significant class imbalance, containing approximately 10,015 images in total.
+Class distribution:
+nv (Melanocytic nevi): 6,705
+mel (Melanoma): 1,113
+bkl (Benign keratosis-like lesions): 1,099
+bcc (Basal cell carcinoma): 514
+akiec (Actinic keratoses / Bowen’s disease): 327
+vasc (Vascular lesions): 142
+df (Dermatofibroma): 115
+This imbalance highlights the challenge of training a robust classifier, particularly for minority classes.
 Original Challenge is [here](https://challenge.isic-archive.com/landing/2018/)
-
-Dataset: HAM10000 ("Human Against Machine with 10000 training images")-Skin Cancer MNIST
-
-Source: [Kaggle](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000)  (based on the original challenge)
 
 ## Detaset
 Number of picture:
