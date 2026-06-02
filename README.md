@@ -20,8 +20,8 @@ These techniques help improve the model’s ability to detect melanoma while mai
 
 ## Dataset
 The dataset used in this project is HAM10000 (Skin Cancer MNIST), originally introduced in the ISIC 2018 Challenge.
-Original Challenge: https://challenge.isic-archive.com/landing/2018/
-Dataset: [HAM10000 ("Human Against Machine with 10000 training images")-Skin Cancer MNIST in Kaggle
+- Original Challenge: https://challenge.isic-archive.com/landing/2018/
+- Dataset: [HAM10000 ("Human Against Machine with 10000 training images")-Skin Cancer MNIST in Kaggle
  ](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000)
 
 ### Dataset Overview
