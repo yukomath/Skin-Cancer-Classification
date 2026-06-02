@@ -1,7 +1,7 @@
 # Skin Cancer Classification
 
 All project files are available in the following folder:
-[Project folder](https://drive.google.com/drive/folders/1STEpBd5-sPoryYCv_VT3BjC2v0yZ1zlg?usp=share_link) 
+[Project folder](https://drive.google.com/drive/folders/1Qv6buAefBZnGuBYxycTklmDHE6uPNURm?usp=share_link) 
 
 ## Overview
 This project aims to build a deep learning model for classifying dermatoscopic images of skin lesions into seven categories.
