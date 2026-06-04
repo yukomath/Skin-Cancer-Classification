@@ -37,7 +37,7 @@ The dataset consists of 7 skin lesion classes with significant class imbalance, 
 This imbalance highlights the challenge of training a robust classifier, particularly for minority classes.
 
 
-Number of picture:
+
 Number of lesion:
 
 <img width="704" height="393" alt="image" src="https://github.com/user-attachments/assets/35336533-d17b-46fb-8f19-8ed7b1d001bc" />
