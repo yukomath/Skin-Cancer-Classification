@@ -36,7 +36,7 @@ The dataset consists of 7 skin lesion classes with significant class imbalance, 
   - df (Dermatofibroma): 115
 This imbalance highlights the challenge of training a robust classifier, particularly for minority classes.
 
-## Detaset
+
 Number of picture:
 Number of lesion:
 
