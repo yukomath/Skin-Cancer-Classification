@@ -132,11 +132,11 @@ All models were evaluated using overall accuracy, macro F1-score, and melanoma r
 
 | Method | Accuracy | Macro F1 | Melanoma Recall |
 |--------|----------|----------|------------------|
-| Inverse-frequency weighted loss | 0.8126 | 0.75 | 0.6405 |
+| **Inverse-frequency weighted loss** | 0.8126 | 0.75 | 0.6405 |
 | Square-root scaled inverse-frequency weighted loss + Weighted randomsampler | 0.6669 | 0.62 | **0.6601** |
 | Weighted random sampler | 0.6424 | 0.59 | 0.6013 |
 | Focal loss  | 0.8099 | 0.64 | 0.5621 |
-| Square-root scaled inverse-frequency weighted loss only | **0.8397** | 0.73 | 0.5817 |
+| Square-root scaled inverse-frequency weighted loss | **0.8397** | 0.73 | 0.5817 |
 
 - Square-root scaled inverse-frequency weighting improved overall accuracy but reduced melanoma recall.
 - Focal loss increased accuracy but failed to improve melanoma sensitivity.
