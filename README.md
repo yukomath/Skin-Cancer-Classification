@@ -1,15 +1,7 @@
 # Skin Cancer Classification
 
-All project files are available in the following folder:
-[Project folder](https://drive.google.com/drive/folders/1Qv6buAefBZnGuBYxycTklmDHE6uPNURm?usp=share_link) 
-
-## Overview
 This project aims to build a deep learning model for classifying dermatoscopic images of skin lesions into seven categories.
 Since melanoma is a malignant tumor, missing a melanoma case (false negative) can have serious medical consequences. Therefore, ***recall*** is used as the primary evaluation metric, with a particular focus on ***melanoma recall***.
-
-[The original challenge](https://challenge.isic-archive.com/landing/2018/) provides only training data, while the test set remains private. In this project, we instead use the dataset available on [Kaggle](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000) and split it into training set 70%, validation set 15% and test set 15%.
-
-To prevent data leakage, the split is performed at the lesion level, ensuring that images from the same lesion do not appear across different subsets.
 
 The dataset is highly imbalanced, with a large number of benign samples and relatively few malignant cases, particularly melanoma. To address this issue, five different imbalance-handling strategies were evaluated:
 
@@ -24,6 +16,11 @@ For each training configuration, the best checkpoint was selected based on melan
 The resulting models were then compared using overall classification performance metrics. Among the evaluated approaches, the inverse-frequency weighted loss model achieved the best overall balance between melanoma recall, macro F1-score, and overall classification performance. Therefore, it was chosen as the final model for this project.
 
 The final model uses a weighted cross-entropy loss with inverse-frequency class weights, assigning larger penalties to underrepresented classes and encouraging the model to better recognize malignant lesions while maintaining strong overall performance.
+
+All project files are available in the following folder:
+[Project folder](https://drive.google.com/drive/folders/1Qv6buAefBZnGuBYxycTklmDHE6uPNURm?usp=share_link) 
+
+
 ## Dataset
 The dataset used in this project is HAM10000 (Skin Cancer MNIST), originally introduced in the ISIC 2018 Challenge.
 - Original Challenge: https://challenge.isic-archive.com/landing/2018/
@@ -50,6 +47,12 @@ Number of lesion:
 
 
 Explanation how unbalanced
+### Train / Split
+The original challenge provides only training data, while the test set remains private. In this project, we instead use the dataset available on Kaggle and split it into training set 70%, validation set 15% and test set 15%.
+
+To prevent data leakage, the split is performed at the lesion level, ensuring that images from the same lesion do not appear across different subsets.
+
+
 
 データ - Skin Cancer HAM 2000 - Original Challenge is here - 悪性と良性、メラノーマに着目すること - トータルの数と７種類それぞれの数 - アンバランス性の説明 データの分割と処理 - Trainingデータのみ公開されており、testデータは非公開です。本プロジェクトではKaggleからデータを用い、trainデータを、train70％, Evaluation15％, test15％の割合で分割して使います - training data には、 Augumentation などの処理をしています。 
 
