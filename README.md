@@ -5,11 +5,11 @@ Since melanoma is a malignant tumor, missing a melanoma case (false negative) ca
 
 The dataset is highly imbalanced, with a large number of benign samples and relatively few malignant cases, particularly melanoma. To address this issue, five different imbalance-handling strategies were evaluated:
 
-Square-root weighted loss + weighted random sampler
-Weighted random sampler only
-Focal loss only
-Inverse-frequency weighted loss only
-Square-root weighted loss only
+- Square-root weighted loss + weighted random sampler
+- Weighted random sampler only
+- Focal loss only
+- Inverse-frequency weighted loss only
+- Square-root weighted loss only
 
 For each training configuration, the best checkpoint was selected based on melanoma recall on the validation set, reflecting the clinical importance of minimizing false negatives for melanoma.
 
