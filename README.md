@@ -125,53 +125,25 @@ The following five approaches were compared:
 These strategies were used to compare different approaches to handling class imbalance, including loss-based methods, sampling-based methods, and their combination.
 
 ---
+
 ## Results
 
-All models were evaluated using the same test set and the following metrics:
+All models were evaluated using overall accuracy, macro F1-score, and melanoma recall.
 
-- Overall accuracy  
-- Per-class recall  
-- Melanoma recall  
-- Macro F1-score  
-- Confusion matrix  
+| Method | Accuracy | Macro F1 | Melanoma Recall |
+|--------|----------|----------|------------------|
+| Weighted loss only | 0.8126 | 0.75 | 0.6405 |
+| Weak weighted loss + sampler | 0.6669 | 0.62 | **0.6601** |
+| Only sampler | 0.6424 | 0.59 | 0.6013 |
+| Focal loss only | 0.8099 | 0.64 | 0.5621 |
+| Weak weighted loss only | **0.8397** | 0.73 | 0.5817 |
 
-Among the five approaches, the inverse-frequency weighted loss model achieved the best overall performance. It showed the best balance between melanoma recall, macro F1-score, and overall classification performance.
+Among all methods, the weighted cross-entropy loss achieved the best balance between melanoma recall and overall classification performance.
 
-Therefore, this model was selected as the final model.
-
-=== Test Evaluation ===
 - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1zXJYapUXX3lupdN_ye3Z4Va38i7fkHNW) **Inverse-frequency weighted loss**
-
-Overall Accuracy: 0.8126
-Melanoma (mel) Recall: 0.6405
-
-Per-class Recall:
-  akiec: 0.6111
-  bcc: 0.8557
-  bkl: 0.6970
-  df: 0.8947
-  mel: 0.6405
-  nv: 0.8547
-  vasc: 0.9565
-
-Classification Report:
-              precision    recall  f1-score   support
-
-       akiec       0.55      0.61      0.58        54
-         bcc       0.69      0.86      0.76        97
-         bkl       0.63      0.70      0.66       132
-          df       0.81      0.89      0.85        19
-         mel       0.48      0.64      0.55       153
-          nv       0.94      0.85      0.90      1032
-        vasc       0.92      0.96      0.94        23
-
-    accuracy                           0.81      1510
-   macro avg       0.72      0.79      0.75      1510
-weighted avg       0.84      0.81      0.82      1510
-
-
-
   
+  Class weights are computed as the inverse of class frequencies, assigning higher penalties to rare classes.
+
 - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1-KhG4GrDcbr7kfFabSneE8WE0Z4JtXCw) **Square-root scaled inverse-frequency weighted loss**
 
   A softened version of inverse-frequency weighting, where class weights are reduced using a square-root transformation to prevent overly large gradients from rare classes.
@@ -187,134 +159,17 @@ weighted avg       0.84      0.81      0.82      1510
 - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1se8BkdNwPSkIA6nERS8Wg8jLxxATM1qy) **Square-root scaled inverse-frequency weighted loss + weighted random sampler**
  
 
+All models were evaluated using the same test set and the following metrics:
 
+- Overall accuracy  
+- Per-class recall  
+- Melanoma recall  
+- Macro F1-score  
+- Confusion matrix  
 
+Among the five approaches, the inverse-frequency weighted loss model achieved the best overall performance. It showed the best balance between melanoma recall, macro F1-score, and overall classification performance.
 
-
-1. 0.5weak loss and sampler
-=== Test Evaluation ===
-Overall Accuracy: 0.6669
-Melanoma (mel) Recall: 0.6601
-
-Per-class Recall:
-  akiec: 0.8704
-  bcc: 0.4536
-  bkl: 0.6061
-  df: 0.6316
-  mel: 0.6601
-  nv: 0.6793
-  vasc: 0.9565
-
-Classification Report:
-              precision    recall  f1-score   support
-
-       akiec       0.27      0.87      0.41        54
-         bcc       0.67      0.45      0.54        97
-         bkl       0.55      0.61      0.58       132
-          df       0.92      0.63      0.75        19
-         mel       0.29      0.66      0.40       153
-          nv       0.96      0.68      0.79      1032
-        vasc       0.73      0.96      0.83        23
-
-    accuracy                           0.67      1510
-   macro avg       0.63      0.69      0.62      1510
-weighted avg       0.81      0.67      0.71      1510
-
-2. Only sampler
-=== Test Evaluation ===
-Overall Accuracy: 0.6424
-Melanoma (mel) Recall: 0.6013
-
-Per-class Recall:
-  akiec: 0.6296
-  bcc: 0.8351
-  bkl: 0.5909
-  df: 0.7895
-  mel: 0.6013
-  nv: 0.6279
-  vasc: 0.9565
-
-Classification Report:
-              precision    recall  f1-score   support
-
-       akiec       0.35      0.63      0.45        54
-         bcc       0.50      0.84      0.63        97
-         bkl       0.37      0.59      0.46       132
-          df       0.79      0.79      0.79        19
-         mel       0.30      0.60      0.40       153
-          nv       0.97      0.63      0.76      1032
-        vasc       0.52      0.96      0.68        23
-
-    accuracy                           0.64      1510
-   macro avg       0.54      0.72      0.59      1510
-weighted avg       0.79      0.64      0.68      1510
-
-
-3. Only focalloss　 
-=== Test Evaluation ===
-Overall Accuracy: 0.8099
-Melanoma (mel) Recall: 0.5621
-
-Per-class Recall:
-  akiec: 0.5926
-  bcc: 0.5876
-  bkl: 0.4545
-  df: 0.2632
-  mel: 0.5621
-  nv: 0.9302
-  vasc: 1.0000
-
-Classification Report:
-              precision    recall  f1-score   support
-
-       akiec       0.59      0.59      0.59        54
-         bcc       0.73      0.59      0.65        97
-         bkl       0.73      0.45      0.56       132
-          df       0.62      0.26      0.37        19
-         mel       0.52      0.56      0.54       153
-          nv       0.88      0.93      0.90      1032
-        vasc       0.77      1.00      0.87        23
-
-    accuracy                           0.81      1510
-   macro avg       0.69      0.63      0.64      1510
-weighted avg       0.80      0.81      0.80      1510
-
-
-
-4. Only weightedloss
- === Test Evaluation ===
-
-5. Only  0.5weakweightedloss
-
-=== Test Evaluation ===
-Overall Accuracy: 0.8397
-Melanoma (mel) Recall: 0.5817
-
-Per-class Recall:
-  akiec: 0.4815
-  bcc: 0.7835
-  bkl: 0.4318
-  df: 0.7895
-  mel: 0.5817
-  nv: 0.9545
-  vasc: 0.8696
-
-Classification Report:
-              precision    recall  f1-score   support
-
-       akiec       0.59      0.48      0.53        54
-         bcc       0.75      0.78      0.76        97
-         bkl       0.88      0.43      0.58       132
-          df       0.83      0.79      0.81        19
-         mel       0.54      0.58      0.56       153
-          nv       0.90      0.95      0.93      1032
-        vasc       0.95      0.87      0.91        23
-
-    accuracy                           0.84      1510
-   macro avg       0.78      0.70      0.73      1510
-weighted avg       0.84      0.84      0.83      1510
-
-
+Therefore, this model was selected as the final model.
 ---
 
 ## Discussion
