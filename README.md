@@ -54,24 +54,95 @@ The original challenge provides only training data, while the test set remains p
 
 To prevent data leakage, the split is performed at the lesion level, ensuring that images from the same lesion do not appear across different subsets.
 
+## Data Preprocessing and Augmentation
 
-training data には、 Augumentation などの処理をしています。 
+All images were resized to 224×224 pixels to match the input size required by the model. ImageNet normalization was applied to align the input distribution with the pretrained weights of ResNet18.
 
-モデル 
+To improve generalization, data augmentation was applied only to the training set:
+
+- Random horizontal flip  
+- Random rotation (±10 degrees)  
+
+No augmentation was applied to validation and test sets in order to ensure a fair and consistent evaluation.
+
+---
+
 ## Model
-- Architecture: ResNet18 (pretrained on ImageNet)
-Final layer modified for 7-class classification
-Reason for choosing ResNet18:
-Lightweight and efficient
-Suitable for limited computational resources
 
-- モデルは、このプロジェクトではResNet-18を使っています。もちろんもっと良いモデルが存在することは理解していますが、軽いモデルなので自分の実行できる環境ではベストかなと思い採用しています。今後もっとより良い環境で実行することができれば、他のモデルも試したいす。 
+A pretrained ResNet18 model was used as the backbone for image classification. The final fully connected layer was replaced with a 7-class output layer corresponding to the skin lesion categories.
 
-クラスごとのデータ数アンバランスの扱い 
+ResNet18 was chosen because this task requires image classification only (not detection or segmentation), and because it provides a good balance between performance and computational efficiency. This allows training on a limited computing environment such as Google Colab.
 
-1. Loss functionと重みの調整 - Loss function はエントロピーロスを使っています。Focal lossでも実行してみましたが、結果は特に良くなりませんでした。 - クラスごとのデータ数アンバランスを扱うために、重みをつけました。重みは少ないかずのクラスのデータを、、、と言うメリットがあります。 - 重みは、最初１でつけて、0.25, 0.4 0.6などを計算してみましたが、クラスごとのrecallのバランスが一番良さそうなのは、0.５（square root）の時なので、ベストモデルは0.5の場合としています。 - 重みの式は、
+---
 
+## Handling Class Imbalance
 
+The dataset is highly imbalanced, especially with a large number of benign cases (melanocytic nevi) and relatively few melanoma cases.
 
+To address this issue, five different strategies were evaluated:
 
-2. Sampler - サンプラーは、少ない数のクラスのデータを、、、と言うメリットがあります。 - samplerの式は、　　
+- Square-root weighted loss + weighted random sampler  
+- Weighted random sampler only  
+- Focal loss only  
+- Inverse-frequency weighted loss only  
+- Square-root weighted loss only  
+
+These methods aim to improve the model’s ability to learn from rare classes, especially melanoma.
+
+---
+
+## Training Strategy
+
+All models were trained using the same pipeline:
+
+- Optimizer: Adam  
+- Learning rate: 1e-4  
+- Scheduler: StepLR (step size = 5, gamma = 0.1)  
+- Batch size: 32  
+- Epochs: 20  
+
+The main evaluation metric during training was **melanoma recall on the validation set**, since false negatives are particularly critical in medical diagnosis.
+
+For each method, the best model checkpoint was selected based on validation melanoma recall.
+
+---
+
+## Results
+
+All models were evaluated using the same test set and the following metrics:
+
+- Overall accuracy  
+- Per-class recall  
+- Melanoma recall  
+- Macro F1-score  
+- Confusion matrix  
+
+Among the five approaches, the inverse-frequency weighted loss model achieved the best overall performance. It showed the best balance between melanoma recall, macro F1-score, and overall classification performance.
+
+Therefore, this model was selected as the final model.
+
+---
+
+## Discussion
+
+The results show that class imbalance handling has a significant impact on performance in medical image classification.
+
+Weighted random sampling improved class balance during training but did not consistently improve melanoma recall.
+
+Focal loss improved learning on hard examples but did not outperform weighted cross-entropy in this dataset.
+
+Square-root weighting reduced the effect of extreme imbalance but also weakened sensitivity to rare classes.
+
+In contrast, inverse-frequency weighted loss provided the best trade-off between learning rare classes and maintaining overall performance. This suggests that directly using class frequency in the loss function is an effective strategy for this dataset.
+
+---
+
+## Conclusion
+
+This project evaluated multiple strategies for handling severe class imbalance in skin lesion classification.
+
+Among all methods, inverse-frequency weighted cross-entropy loss achieved the best performance and was selected as the final model.
+
+This approach improved melanoma detection performance while maintaining strong overall classification results.
+
+These results highlight the importance of loss function design in medical image classification tasks with highly imbalanced datasets.
