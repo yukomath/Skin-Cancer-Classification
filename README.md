@@ -23,6 +23,7 @@ All project files are available in the following folder:
 
 
 
+
 ## Dataset
 The dataset used in this project is HAM10000 (Skin Cancer MNIST), originally introduced in the ISIC 2018 Challenge.
 - Original Challenge: https://challenge.isic-archive.com/landing/2018/
