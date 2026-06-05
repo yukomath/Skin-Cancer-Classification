@@ -138,36 +138,17 @@ All models were evaluated using overall accuracy, macro F1-score, and melanoma r
 | Focal loss  | 0.8099 | 0.64 | 0.5621 |
 | Square-root scaled inverse-frequency weighted loss | **0.8397** | 0.73 | 0.5817 |
 
-- Square-root scaled inverse-frequency weighting improved overall accuracy but reduced melanoma recall.
-- Focal loss increased accuracy but failed to improve melanoma sensitivity.
-- Sampling alone was insufficient to handle severe class imbalance.
-- Weighted cross-entropy loss provided the most stable trade-off between minority class performance and overall accuracy.
 
-
-Among all methods, the weighted cross-entropy loss achieved the best balance between melanoma recall and overall classification performance.
-
----
-
-## Discussion
 
 The results show that class imbalance handling has a significant impact on performance in medical image classification.
 
-Weighted random sampling improved class balance during training but did not consistently improve melanoma recall.
+Weighted random sampling helped improve class balance during training, but did not reliably improve melanoma recall, suggesting that sampling alone is not sufficient for this problem.
 
-Focal loss improved learning on hard examples but did not outperform weighted cross-entropy in this dataset.
+Focal loss improved learning on hard examples; however, it did not perform better than weighted cross-entropy in this dataset, likely due to the strong class imbalance.
 
-Square-root weighting reduced the effect of extreme imbalance but also weakened sensitivity to rare classes.
+Square-root scaled inverse-frequency weighting reduced the effect of extreme class imbalance but also weakened the model’s sensitivity to rare classes such as melanoma.
 
-In contrast, inverse-frequency weighted loss provided the best trade-off between learning rare classes and maintaining overall performance. This suggests that directly using class frequency in the loss function is an effective strategy for this dataset.
+In summary, these results indicate a trade-off between improving performance on minority classes and maintaining stable overall classification performance. Among the evaluated methods, inverse-frequency weighted cross-entropy provided the most balanced performance, suggesting that directly using class frequency in the loss function is an effective strategy for this dataset.
 
 ---
 
-## Conclusion
-
-This project evaluated multiple strategies for handling severe class imbalance in skin lesion classification.
-
-Among all methods, inverse-frequency weighted cross-entropy loss achieved the best performance and was selected as the final model.
-
-This approach improved melanoma detection performance while maintaining strong overall classification results.
-
-These results highlight the importance of loss function design in medical image classification tasks with highly imbalanced datasets.
