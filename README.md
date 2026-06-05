@@ -11,13 +11,19 @@ Since melanoma is a malignant tumor, missing a melanoma case (false negative) ca
 
 To prevent data leakage, the split is performed at the lesion level, ensuring that images from the same lesion do not appear across different subsets.
 
-The dataset is highly imbalanced, with a large number of benign samples and relatively few malignant cases, especially melanoma. To address this imbalance, we apply:
+The dataset is highly imbalanced, with a large number of benign samples and relatively few malignant cases, particularly melanoma. To address this issue, five different imbalance-handling strategies were evaluated:
 
-- a ***weighted random sampler*** to rebalance the training data distribution
-- a ***weighted loss function*** to emphasize minority classes during training
+Square-root weighted loss + weighted random sampler
+Weighted random sampler only
+Focal loss only
+Inverse-frequency weighted loss only
+Square-root weighted loss only
 
-These techniques help improve the model’s ability to detect melanoma while maintaining overall performance.
+For each training configuration, the best checkpoint was selected based on melanoma recall on the validation set, reflecting the clinical importance of minimizing false negatives for melanoma.
 
+The resulting models were then compared using overall classification performance metrics. Among the evaluated approaches, the inverse-frequency weighted loss model achieved the best overall balance between melanoma recall, macro F1-score, and overall classification performance. Therefore, it was chosen as the final model for this project.
+
+The final model uses a weighted cross-entropy loss with inverse-frequency class weights, assigning larger penalties to underrepresented classes and encouraging the model to better recognize malignant lesions while maintaining strong overall performance.
 ## Dataset
 The dataset used in this project is HAM10000 (Skin Cancer MNIST), originally introduced in the ISIC 2018 Challenge.
 - Original Challenge: https://challenge.isic-archive.com/landing/2018/
