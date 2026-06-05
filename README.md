@@ -48,8 +48,8 @@ This imbalance highlights the challenge of training a robust classifier, particu
 <img width="704" height="393" alt="image" src="https://github.com/user-attachments/assets/35336533-d17b-46fb-8f19-8ed7b1d001bc" />
 
 
-Explanation how unbalanced
-### Train / Split
+
+### Dataset Split
 The original challenge provides only training data, while the test set remains private. In this project, we instead use the dataset available on Kaggle and split it into training set 70%, validation set 15% and test set 15%.
 
 To prevent data leakage, the split is performed at the lesion level, ensuring that images from the same lesion do not appear across different subsets.
