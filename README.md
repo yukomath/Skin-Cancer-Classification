@@ -143,7 +143,9 @@ All models were evaluated using overall accuracy, macro F1-score, and melanoma r
 - Sampling alone was insufficient to handle severe class imbalance.
 - Weighted cross-entropy loss provided the most stable trade-off between minority class performance and overall accuracy.
 
+
 Among all methods, the weighted cross-entropy loss achieved the best balance between melanoma recall and overall classification performance.
+
 ---
 
 ## Discussion
