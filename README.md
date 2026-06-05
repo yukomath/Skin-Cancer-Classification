@@ -29,7 +29,7 @@ The dataset used in this project is HAM10000 (Skin Cancer MNIST), originally int
 - Dataset: [HAM10000 ("Human Against Machine with 10000 training images")-Skin Cancer MNIST in Kaggle
  ](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000)
 
-### Dataset Overview
+
 The dataset consists of 7 skin lesion classes with significant class imbalance, containing approximately 10,015 images in total.
 - Class distribution:
   - nv (Melanocytic nevi): 6,705
