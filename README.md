@@ -95,8 +95,6 @@ For each method, the best model checkpoint was selected based on validation mela
 
 ## Handling Class Imbalance
 
-## Handling Class Imbalance
-
 The dataset is highly imbalanced, with a large number of benign cases (melanocytic nevi) and relatively few melanoma cases.
 
 This imbalance can negatively affect model performance, especially for rare classes such as melanoma. Since the main objective of this project is to improve melanoma classification performance, different imbalance-handling strategies were systematically evaluated.
