@@ -103,23 +103,28 @@ This imbalance can negatively affect model performance, especially for rare clas
 
 The following five approaches were compared:
 
-- **Inverse-frequency weighted loss**  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
+- **Inverse-frequency weighted loss**
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
 
   Class weights are computed as the inverse of class frequencies, assigning higher penalties to rare classes.
 
-- **Square-root scaled inverse-frequency weighted loss**  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
+- **Square-root scaled inverse-frequency weighted loss**
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
 
   A softened version of inverse-frequency weighting, where class weights are reduced using a square-root transformation to prevent overly large gradients from rare classes.
 
-- **Weighted random sampler only**  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
+- **Weighted random sampler only**
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
 
   The training data distribution is balanced by oversampling minority classes without modifying the loss function.
 
-- **Focal loss only**  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
+- **Focal loss only**
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
 
   A loss function that down-weights easy examples and focuses training on hard-to-classify samples.
 
-- **Square-root scaled inverse-frequency weighted loss + weighted random sampler**  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
+- **Square-root scaled inverse-frequency weighted loss + weighted random sampler**
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
 
   A combination of softened class weighting and balanced sampling to address both loss-level and data-level imbalance.
 
