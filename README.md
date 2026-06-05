@@ -5,11 +5,11 @@ Since melanoma is a malignant tumor, missing a melanoma case (false negative) ca
 
 The dataset is highly imbalanced, with a large number of benign samples and relatively few malignant cases, particularly melanoma. To handle this issue, five different imbalance-handling strategies were evaluated:
 
-- Square-root weighted loss + weighted random sampler
+- Square-root scaled inverse-frequency weighted loss + weighted random sampler
 - Weighted random sampler only
 - Focal loss only
 - Inverse-frequency weighted loss only
-- Square-root weighted loss only
+- Square-root scaled inverse-frequency weighted loss only
 
 For each method, the best checkpoint was selected based on melanoma recall on the validation set, reflecting the clinical importance of minimizing false negatives for melanoma.
 
@@ -132,13 +132,13 @@ All models were evaluated using overall accuracy, macro F1-score, and melanoma r
 
 | Method | Accuracy | Macro F1 | Melanoma Recall |
 |--------|----------|----------|------------------|
-| Weighted loss only | 0.8126 | 0.75 | 0.6405 |
-| Weak weighted loss + sampler | 0.6669 | 0.62 | **0.6601** |
-| Only sampler | 0.6424 | 0.59 | 0.6013 |
-| Focal loss only | 0.8099 | 0.64 | 0.5621 |
-| Weak weighted loss only | **0.8397** | 0.73 | 0.5817 |
+| Inverse-frequency weighted loss | 0.8126 | 0.75 | 0.6405 |
+| Square-root scaled inverse-frequency weighted loss + Weighted randomsampler | 0.6669 | 0.62 | **0.6601** |
+| Weighted random sampler | 0.6424 | 0.59 | 0.6013 |
+| Focal loss  | 0.8099 | 0.64 | 0.5621 |
+| Square-root scaled inverse-frequency weighted loss only | **0.8397** | 0.73 | 0.5817 |
 
-- Weak weighting improved overall accuracy but reduced melanoma recall.
+- Square-root scaled inverse-frequency weighting improved overall accuracy but reduced melanoma recall.
 - Focal loss increased accuracy but failed to improve melanoma sensitivity.
 - Sampling alone was insufficient to handle severe class imbalance.
 - Weighted cross-entropy loss provided the most stable trade-off between minority class performance and overall accuracy.
