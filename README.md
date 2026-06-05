@@ -139,6 +139,57 @@ Among the five approaches, the inverse-frequency weighted loss model achieved th
 
 Therefore, this model was selected as the final model.
 
+=== Test Evaluation ===
+- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1zXJYapUXX3lupdN_ye3Z4Va38i7fkHNW) **Inverse-frequency weighted loss**
+
+Overall Accuracy: 0.8126
+Melanoma (mel) Recall: 0.6405
+
+Per-class Recall:
+  akiec: 0.6111
+  bcc: 0.8557
+  bkl: 0.6970
+  df: 0.8947
+  mel: 0.6405
+  nv: 0.8547
+  vasc: 0.9565
+
+Classification Report:
+              precision    recall  f1-score   support
+
+       akiec       0.55      0.61      0.58        54
+         bcc       0.69      0.86      0.76        97
+         bkl       0.63      0.70      0.66       132
+          df       0.81      0.89      0.85        19
+         mel       0.48      0.64      0.55       153
+          nv       0.94      0.85      0.90      1032
+        vasc       0.92      0.96      0.94        23
+
+    accuracy                           0.81      1510
+   macro avg       0.72      0.79      0.75      1510
+weighted avg       0.84      0.81      0.82      1510
+
+
+
+  
+- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1-KhG4GrDcbr7kfFabSneE8WE0Z4JtXCw) **Square-root scaled inverse-frequency weighted loss**
+
+  A softened version of inverse-frequency weighting, where class weights are reduced using a square-root transformation to prevent overly large gradients from rare classes.
+
+- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/16k8jmtHa-0sGwH68GikQrgFcKEz-JPWd) **Weighted random sampler only**
+  
+  The training data distribution is balanced by oversampling minority classes without modifying the loss function.
+
+- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1hEp8_8HEQ0FnqvrAUpbkGxf3Qmg95EzV) **Focal loss only**
+  
+  A loss function that down-weights easy examples and focuses training on hard-to-classify samples.
+
+- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1se8BkdNwPSkIA6nERS8Wg8jLxxATM1qy) **Square-root scaled inverse-frequency weighted loss + weighted random sampler**
+ 
+
+
+
+
 
 1. 0.5weak loss and sampler
 === Test Evaluation ===
@@ -232,34 +283,6 @@ weighted avg       0.80      0.81      0.80      1510
 
 4. Only weightedloss
  === Test Evaluation ===
-Overall Accuracy: 0.8126
-Melanoma (mel) Recall: 0.6405
-
-Per-class Recall:
-  akiec: 0.6111
-  bcc: 0.8557
-  bkl: 0.6970
-  df: 0.8947
-  mel: 0.6405
-  nv: 0.8547
-  vasc: 0.9565
-
-Classification Report:
-              precision    recall  f1-score   support
-
-       akiec       0.55      0.61      0.58        54
-         bcc       0.69      0.86      0.76        97
-         bkl       0.63      0.70      0.66       132
-          df       0.81      0.89      0.85        19
-         mel       0.48      0.64      0.55       153
-          nv       0.94      0.85      0.90      1032
-        vasc       0.92      0.96      0.94        23
-
-    accuracy                           0.81      1510
-   macro avg       0.72      0.79      0.75      1510
-weighted avg       0.84      0.81      0.82      1510
-
-
 
 5. Only  0.5weakweightedloss
 
