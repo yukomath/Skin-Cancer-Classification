@@ -55,8 +55,7 @@ The original challenge provides only training data, while the test set remains p
 To prevent data leakage, the split is performed at the lesion level, ensuring that images from the same lesion do not appear across different subsets.
 
 
-
-データ - Skin Cancer HAM 2000 - Original Challenge is here - 悪性と良性、メラノーマに着目すること - トータルの数と７種類それぞれの数 - アンバランス性の説明 データの分割と処理 - Trainingデータのみ公開されており、testデータは非公開です。本プロジェクトではKaggleからデータを用い、trainデータを、train70％, Evaluation15％, test15％の割合で分割して使います - training data には、 Augumentation などの処理をしています。 
+training data には、 Augumentation などの処理をしています。 
 
 モデル 
 ## Model
