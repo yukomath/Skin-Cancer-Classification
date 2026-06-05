@@ -152,4 +152,6 @@ Square-root scaled inverse-frequency weighting reduced the effect of extreme cla
 In summary, these results indicate a trade-off between improving performance on minority classes and maintaining stable overall classification performance. Among the evaluated methods, inverse-frequency weighted cross-entropy provided the most balanced performance, suggesting that directly using class frequency in the loss function is an effective strategy for this dataset.
 
 ---
+### Acknowledgements
+Parts of the code and explanations in this project were created with the assistance of ChatGPT by OpenAI.
 
