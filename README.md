@@ -138,38 +138,12 @@ All models were evaluated using overall accuracy, macro F1-score, and melanoma r
 | Focal loss only | 0.8099 | 0.64 | 0.5621 |
 | Weak weighted loss only | **0.8397** | 0.73 | 0.5817 |
 
+- Weak weighting improved overall accuracy but reduced melanoma recall.
+- Focal loss increased accuracy but failed to improve melanoma sensitivity.
+- Sampling alone was insufficient to handle severe class imbalance.
+- Weighted cross-entropy loss provided the most stable trade-off between minority class performance and overall accuracy.
+
 Among all methods, the weighted cross-entropy loss achieved the best balance between melanoma recall and overall classification performance.
-
-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1zXJYapUXX3lupdN_ye3Z4Va38i7fkHNW) **Inverse-frequency weighted loss**
-  
-  Class weights are computed as the inverse of class frequencies, assigning higher penalties to rare classes.
-
-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1-KhG4GrDcbr7kfFabSneE8WE0Z4JtXCw) **Square-root scaled inverse-frequency weighted loss**
-
-  A softened version of inverse-frequency weighting, where class weights are reduced using a square-root transformation to prevent overly large gradients from rare classes.
-
-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/16k8jmtHa-0sGwH68GikQrgFcKEz-JPWd) **Weighted random sampler only**
-  
-  The training data distribution is balanced by oversampling minority classes without modifying the loss function.
-
-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1hEp8_8HEQ0FnqvrAUpbkGxf3Qmg95EzV) **Focal loss only**
-  
-  A loss function that down-weights easy examples and focuses training on hard-to-classify samples.
-
-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1se8BkdNwPSkIA6nERS8Wg8jLxxATM1qy) **Square-root scaled inverse-frequency weighted loss + weighted random sampler**
- 
-
-All models were evaluated using the same test set and the following metrics:
-
-- Overall accuracy  
-- Per-class recall  
-- Melanoma recall  
-- Macro F1-score  
-- Confusion matrix  
-
-Among the five approaches, the inverse-frequency weighted loss model achieved the best overall performance. It showed the best balance between melanoma recall, macro F1-score, and overall classification performance.
-
-Therefore, this model was selected as the final model.
 ---
 
 ## Discussion
