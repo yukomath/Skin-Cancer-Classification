@@ -98,7 +98,7 @@ For each method, the best model checkpoint was selected based on validation mela
 
 The dataset is highly imbalanced, with a large number of benign cases (melanocytic nevi) and relatively few melanoma cases.
 
-This imbalance can negatively affect model performance, especially for rare classes such as melanoma. Since the main objective of this project is to improve melanoma classification performance, different imbalance-handling strategies were systematically evaluated.
+This imbalance can negatively affect model performance, especially for small classes such as melanoma. Since the main objective of this project is to improve melanoma classification performance, different imbalance-handling strategies were systematically evaluated.
 
 The following five approaches were compared:
 
@@ -122,7 +122,8 @@ The following five approaches were compared:
  
   A combination of softened class weighting and balanced sampling to address both loss-level and data-level imbalance.
 
-These strategies were used to compare different approaches to handling class imbalance, including loss-based methods, sampling-based methods, and their combination.
+
+These strategies compare different approaches to handling class imbalance, including loss-based methods, sampling-based methods, and their combination.
 
 ---
 
