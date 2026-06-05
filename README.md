@@ -122,11 +122,8 @@ The following five approaches were compared:
  
   A combination of softened class weighting and balanced sampling to address both loss-level and data-level imbalance.
 
-These strategies were designed to compare different ways of handling class imbalance, including loss-based methods, sampling-based methods, and their combination.
+These strategies were used to compare different approaches to handling class imbalance, including loss-based methods, sampling-based methods, and their combination.
 
-The performance of each method is evaluated in the following section.
-
-The performance of each approach is compared in the following section.
 ---
 ## Results
 
