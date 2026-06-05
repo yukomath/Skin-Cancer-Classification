@@ -77,22 +77,6 @@ ResNet18 was chosen because this task requires image classification only (not de
 
 ---
 
-## Handling Class Imbalance
-
-The dataset is highly imbalanced, especially with a large number of benign cases (melanocytic nevi) and relatively few melanoma cases.
-
-To address this issue, five different strategies were evaluated:
-
-- Square-root weighted loss + weighted random sampler  
-- Weighted random sampler only  
-- Focal loss only  
-- Inverse-frequency weighted loss only  
-- Square-root weighted loss only  
-
-These methods aim to improve the model’s ability to learn from rare classes, especially melanoma.
-
----
-
 ## Training Strategy
 
 All models were trained using the same pipeline:
@@ -109,6 +93,37 @@ For each method, the best model checkpoint was selected based on validation mela
 
 ---
 
+## Handling Class Imbalance
+
+## Handling Class Imbalance
+
+The dataset is highly imbalanced, with a large number of benign cases (melanocytic nevi) and relatively few melanoma cases.
+
+This imbalance can negatively affect model performance, especially for rare classes such as melanoma. Since the main objective of this project is to improve melanoma classification performance, different imbalance-handling strategies were systematically evaluated.
+
+The following five approaches were compared:
+
+- **Inverse-frequency weighted loss**  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
+  Class weights are computed as the inverse of class frequencies, assigning higher penalties to rare classes.
+
+- **Square-root scaled inverse-frequency weighted loss**  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
+  A softened version of inverse-frequency weighting, where class weights are reduced using a square-root transformation to prevent overly large gradients from rare classes.
+
+- **Weighted random sampler only**  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
+  The training data distribution is balanced by oversampling minority classes without modifying the loss function.
+
+- **Focal loss only**  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
+  A loss function that down-weights easy examples and focuses training on hard-to-classify samples.
+
+- **Square-root scaled inverse-frequency weighted loss + weighted random sampler**  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK)
+  A combination of softened class weighting and balanced sampling to address both loss-level and data-level imbalance.
+
+These strategies were designed to compare different ways of handling class imbalance, including loss-based methods, sampling-based methods, and their combination.
+
+The performance of each method is evaluated in the following section.
+
+The performance of each approach is compared in the following section.
+---
 ## Results
 
 All models were evaluated using the same test set and the following metrics:
