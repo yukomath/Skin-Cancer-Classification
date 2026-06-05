@@ -40,6 +40,7 @@ The dataset consists of 7 skin lesion classes with significant class imbalance, 
   - akiec (Actinic keratoses / Bowen’s disease): 327
   - vasc (Vascular lesions): 142
   - df (Dermatofibroma): 115
+    
 This imbalance highlights the challenge of training a robust classifier, particularly for minority classes.
 
 
