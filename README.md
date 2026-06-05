@@ -3,7 +3,7 @@
 This project aims to build a deep learning model for classifying dermatoscopic images of skin lesions into seven categories.
 Since melanoma is a malignant tumor, missing a melanoma case (false negative) can have serious medical consequences. Therefore, ***recall*** is used as the primary evaluation metric, with a particular focus on ***melanoma recall***.
 
-The dataset is highly imbalanced, with a large number of benign samples and relatively few malignant cases, particularly melanoma. To address this issue, five different imbalance-handling strategies were evaluated:
+The dataset is highly imbalanced, with a large number of benign samples and relatively few malignant cases, particularly melanoma. To handle this issue, five different imbalance-handling strategies were evaluated:
 
 - Square-root weighted loss + weighted random sampler
 - Weighted random sampler only
@@ -11,11 +11,12 @@ The dataset is highly imbalanced, with a large number of benign samples and rela
 - Inverse-frequency weighted loss only
 - Square-root weighted loss only
 
-For each training configuration, the best checkpoint was selected based on melanoma recall on the validation set, reflecting the clinical importance of minimizing false negatives for melanoma.
+For each method, the best checkpoint was selected based on melanoma recall on the validation set, reflecting the clinical importance of minimizing false negatives for melanoma.
 
-The resulting models were then compared using overall classification performance metrics. Among the evaluated approaches, the inverse-frequency weighted loss model achieved the best overall balance between melanoma recall, macro F1-score, and overall classification performance. Therefore, it was chosen as the final model for this project.
+The resulting models were then compared using classification performance metrics. Among the evaluated approaches, the inverse-frequency weighted loss model achieved the best balance between melanoma recall, macro F1-score, and classification performance. Therefore, it was chosen as the final model for this project.
 
-The final model uses a weighted cross-entropy loss with inverse-frequency class weights, assigning larger penalties to underrepresented classes and encouraging the model to better recognize malignant lesions while maintaining strong overall performance.
+The final model uses a weighted cross-entropy loss with inverse-frequency class weights, giving larger penalties to rare classes and helping the model better recognize malignant lesions while maintaining strong performance.
+
 
 All project files are available in the following folder:
 [Project folder](https://drive.google.com/drive/folders/1Qv6buAefBZnGuBYxycTklmDHE6uPNURm?usp=share_link) 
