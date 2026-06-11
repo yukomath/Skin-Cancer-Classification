@@ -143,7 +143,8 @@ All models were evaluated using overall accuracy, macro F1-score, and melanoma r
 
 The results show that class imbalance handling has a significant impact on performance in medical image classification.
 
-Weighted random sampling helped improve class balance during training, but did not reliably improve melanoma recall, suggesting that sampling alone is not sufficient for this problem.
+Weighted random sampling helped improve class balance during training, but did not reliably improve melanoma recall, suggesting that sampling alone is not sufficient for this problem.　However, when combined with square-root scaled inverse-frequency weighting, a partial improvement in melanoma recall was observed.
+
 
 Focal loss improved learning on hard examples; however, it did not perform better than weighted cross-entropy in this dataset, likely due to the strong class imbalance.
 
