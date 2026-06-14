@@ -15,7 +15,7 @@ For each method, the optimal checkpoint was selected based on melanoma recall wi
 
 The resulting models were then compared across standard classification performance metrics. Among the evaluated approaches, the inverse-frequency weighted loss model achieved the prime balance among melanoma recall, macro F1-score, and classification performance. Therefore, it was selected as the final model for this project.
 
-The final model utilizes a weighted cross-entropy loss function with inverse-frequency class weights. This approach applies large penalties to rare classes and helps the model better identify malignant lesions while maintaining strong overall performance.
+The final model utilizes a weighted cross-entropy loss function with inverse-frequency class weights. This approach applies large penalties to rare classes and helps the model better identify malignant lesions while maintaining strong performance.
 
 
 All project files are available in the following folder:
