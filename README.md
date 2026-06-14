@@ -15,7 +15,7 @@ For each method, the optimal checkpoint was selected based on melanoma recall wi
 
 The resulting models were then compared across standard classification performance metrics. Among the evaluated approaches, the inverse-frequency weighted loss model achieved the prime balance among melanoma recall, macro F1-score, and classification performance. Therefore, it was selected as the final model for this project.
 
-The final model utilizes a weighted cross-entropy loss function with inverse-frequency class weights. This approach applies large penalties to rare classes and helps the model better identify malignant lesions while maintaining strong performance.
+The final model utilizes a weighted cross-entropy loss function with inverse-frequency class weights. This approach applies large penalties to rare classes and helps the model better identify malignant lesions while maintaining strong overall performance.
 
 
 All project files are available in the following folder:
@@ -74,7 +74,7 @@ No augmentation was applied to validation and test sets in order to ensure a fai
 
 A pretrained ResNet18 model was used as the backbone for image classification. The final fully connected layer was replaced with a 7-class output layer corresponding to the skin lesion categories.
 
-ResNet18 was chosen because this task requires image classification only (not detection or segmentation), and because it provides a good balance between performance and computational efficiency. This allows training on a limited computing environment such as Google Colab.
+ResNet18 was chosen because this task requires image classification only (not detection or segmentation), and because it provides a good balance between performance and computational efficiency. This allows training on a resource-constrained environments.
 
 ---
 
@@ -98,7 +98,7 @@ For each method, the best model checkpoint was selected based on validation mela
 
 The dataset is highly imbalanced, with a large number of benign cases (melanocytic nevi) and relatively few melanoma cases.
 
-This imbalance can negatively affect model performance, especially for small classes such as melanoma. Since the main objective of this project is to improve melanoma classification performance, different imbalance-handling strategies were systematically evaluated.
+This imbalance presets the potential to affect model performance, especially for small classes such as melanoma. Since the main objective of this project is to improve melanoma classification performance, different imbalance-handling strategies were systematically evaluated.
 
 The following five approaches were compared:
 
@@ -143,14 +143,14 @@ All models were evaluated using overall accuracy, macro F1-score, and melanoma r
 
 The results show that class imbalance handling has a significant impact on performance in medical image classification.
 
-Weighted random sampling helped improve class balance during training, but did not reliably improve melanoma recall, suggesting that sampling alone is not sufficient for this problem.　However, when combined with square-root scaled inverse-frequency weighting, a partial improvement in melanoma recall was observed.
+Weighted random sampling assisted in improving class balance during training, but did not reliably improve melanoma recall, suggesting that sampling alone is not sufficient for this problem.　However, when combined with square-root scaled inverse-frequency weighting, a partial improvement in melanoma recall was observed.
 
 
-Focal loss improved learning on hard examples; however, it did not perform better than weighted cross-entropy in this dataset, likely due to the strong class imbalance.
+Focal loss elevated learning on hard examples; however, it did not perform better than weighted cross-entropy in this dataset, likely due to the strong class imbalance.
 
-Square-root scaled inverse-frequency weighting reduced the effect of extreme class imbalance but also weakened the model’s sensitivity to rare classes such as melanoma.
+Square-root scaled inverse-frequency weighting reduced the effect of extreme class imbalance but simultaneously weakened the model’s sensitivity to rare classes such as melanoma.
 
-In summary, these results indicate a trade-off between improving performance on minority classes and maintaining stable overall classification performance. Among the evaluated methods, inverse-frequency weighted cross-entropy provided the most balanced performance, suggesting that directly using class frequency in the loss function is an effective strategy for this dataset.
+In summary, these results indicate a trade-off between enhanced performance on minority classes and maintaining stable overall classification performance. Among the evaluated methods, inverse-frequency weighted cross-entropy provided the most balanced performance, suggesting that directly using class frequency in the loss function is an effective strategy for this dataset.
 
 ---
 ### Acknowledgements
