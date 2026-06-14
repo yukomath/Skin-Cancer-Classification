@@ -1,9 +1,9 @@
 # Skin Cancer Classification
 
-This project aims to build a deep learning model for classifying dermatoscopic images of skin lesions into seven categories.
-Since melanoma is a malignant tumor, missing a melanoma case (false negative) can have serious medical consequences. Therefore, ***recall*** is used as the primary evaluation metric, with a particular focus on ***melanoma recall***.
+This project implements a deep learning model to classify dermatoscopic images of skin lesions into seven distinct categories.
+Since melanoma is a malignant tumor, failing to correctly indentify a melanoma case (false negative) can have serious medical consequences. Therefore, ***recall*** serves as the primary evaluation metric, with a specific focus on maximizing ***melanoma recall***.
 
-The dataset is highly imbalanced, with a large number of benign samples and relatively few malignant cases, particularly melanoma. To handle this issue, five different imbalance-handling strategies were evaluated:
+The dataset exhibits a severe class imbalance, containing a high volume of benign samples and relatively few malignant cases, particularly melanoma. To address this issue, five different imbalance-handling strategies were evaluated:
 
 - Square-root scaled inverse-frequency weighted loss + weighted random sampler
 - Weighted random sampler only
