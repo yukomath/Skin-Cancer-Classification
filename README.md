@@ -11,11 +11,11 @@ The dataset exhibits a severe class imbalance, containing a high volume of benig
 - Inverse-frequency weighted loss only
 - Square-root scaled inverse-frequency weighted loss only
 
-For each method, the best checkpoint was selected based on melanoma recall on the validation set, reflecting the clinical importance of minimizing false negatives for melanoma.
+For each method, the optimal checkpoint was selected based on melanoma recall within validation set, reflecting the clinical priority of minimizing false negatives for melanoma.
 
-The resulting models were then compared using classification performance metrics. Among the evaluated approaches, the inverse-frequency weighted loss model achieved the best balance between melanoma recall, macro F1-score, and classification performance. Therefore, it was chosen as the final model for this project.
+The resulting models were then compared across standard classification performance metrics. Among the evaluated approaches, the inverse-frequency weighted loss model achieved the prime balance among melanoma recall, macro F1-score, and classification performance. Therefore, it was selected as the final model for this project.
 
-The final model uses a weighted cross-entropy loss with inverse-frequency class weights, giving larger penalties to rare classes and helping the model better recognize malignant lesions while maintaining strong performance.
+The final model utilizes a weighted cross-entropy loss function with inverse-frequency class weights. This approach applies large penalties to rare classes and helps the model better identify malignant lesions while maintaining strong performance.
 
 
 All project files are available in the following folder:
