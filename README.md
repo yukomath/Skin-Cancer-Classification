@@ -33,13 +33,16 @@ The dataset used in this project is HAM10000 (Skin Cancer MNIST), originally int
 
 The dataset consists of 7 skin lesion classes with significant class imbalance, containing approximately 10,015 images in total.
 - Class distribution:
-  - nv (Melanocytic nevi): 6,705
-  - mel (Melanoma): 1,113
-  - bkl (Benign keratosis-like lesions): 1,099
-  - bcc (Basal cell carcinoma): 514
-  - akiec (Actinic keratoses / Bowen’s disease): 327
-  - vasc (Vascular lesions): 142
-  - df (Dermatofibroma): 115
+ 
+| Class Code | Lesion Type | Image Count | Percentage |
+| :--- | :--- | :--- | :--- |
+| **nv** | Melanocytic nevi (Benign) | 6,705 | ~66.9% |
+| **mel** | **Melanoma (Malignant)** | **1,113** | **~11.1%** |
+| **bkl** | Benign keratosis-like lesions | 1,099 | ~11.0% |
+| **bcc** | Basal cell carcinoma (Malignant) | 514 | ~5.1% |
+| **akiec** | Actinic keratoses / Bowen’s disease | 327 | ~3.3% |
+| **vasc** | Vascular lesions | 142 | ~1.4% |
+| **df** | Dermatofibroma | 115 | ~1.1% |    
     
 This imbalance highlights the challenge of training a robust classifier, particularly for minority classes.
 
