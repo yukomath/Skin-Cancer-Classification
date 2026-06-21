@@ -144,6 +144,21 @@ All models were evaluated using overall accuracy, macro F1-score, and melanoma r
 | *Square-root scaled inverse-frequency weighted loss* | 0.8397 | 0.73 | **0.5817** |
 | *Focal loss only* | 0.8099 | 0.64 | **0.5621** |
 
+## Results and Discussion
+
+The results show that class imbalance handling has a significant impact on performance in medical image classification.
+
+*   **Weighted Random Sampling:**
+    Assisted in improving class balance during training, but did not reliably improve melanoma recall, suggesting that sampling alone is not sufficient for this problem. However, when combined with square-root scaled inverse-frequency weighting, a partial improvement in melanoma recall was observed.
+*   **Focal Loss:**
+    Focused learning on hard examples; however, it did not perform better than weighted cross-entropy in this dataset, likely due to the strong class imbalance.
+*   **Square-Root Scaled Inverse-Frequency Weighting:**
+    Reduced the effect of extreme class imbalance but simultaneously weakened the model’s sensitivity to rare classes such as melanoma.
+
+### Conclusion
+In summary, these results indicate a trade-off between enhanced performance on minority classes and maintaining stable overall classification performance. Among the evaluated methods, inverse-frequency weighted cross-entropy provided the most balanced performance, suggesting that directly using class frequency in the loss function is an effective strategy for this dataset.
+
+---
 
 The results show that class imbalance handling has a significant impact on performance in medical image classification.
 
