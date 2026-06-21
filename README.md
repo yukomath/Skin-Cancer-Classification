@@ -1,7 +1,7 @@
 # Skin Cancer Classification
 
 This project implements a deep learning model to classify dermatoscopic images of skin lesions into seven distinct categories.
-Since melanoma is a malignant tumor, failing to correctly indentify a melanoma case (false negative) can have serious medical consequences. Therefore, ***recall*** serves as the primary evaluation metric, with a specific focus on maximizing ***melanoma recall***.
+Since melanoma is a malignant tumor, failing to correctly identify a melanoma case (false negative) can have serious medical consequences. Therefore, ***recall*** serves as the primary evaluation metric, with a specific focus on maximizing ***melanoma recall***.
 
 The dataset exhibits a severe class imbalance, containing a high volume of benign samples and relatively few malignant cases, particularly melanoma. To address this issue, five different imbalance-handling strategies were evaluated:
 
@@ -13,7 +13,7 @@ The dataset exhibits a severe class imbalance, containing a high volume of benig
 
 For each method, the optimal checkpoint was selected based on melanoma recall within validation set, reflecting the clinical priority of minimizing false negatives for melanoma.
 
-The resulting models were then compared across standard classification performance metrics. Among the evaluated approaches, the inverse-frequency weighted loss model achieved the prime balance among melanoma recall, macro F1-score, and classification performance. Therefore, it was selected as the final model for this project.
+The resulting models were then compared across standard classification performance metrics. Among the evaluated approaches, the inverse-frequency weighted loss model achieved the optimal balance among melanoma recall, macro F1-score, and classification performance. Therefore, it was selected as the final model for this project.
 
 The final model utilizes a weighted cross-entropy loss function with inverse-frequency class weights. This approach applies large penalties to rare classes and helps the model better identify malignant lesions while maintaining strong performance.
 
