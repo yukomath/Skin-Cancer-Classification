@@ -144,14 +144,6 @@ All models were evaluated using overall accuracy, macro F1-score, and melanoma r
 | *Square-root scaled inverse-frequency weighted loss* | 0.8397 | 0.73 | **0.5817** |
 | *Focal loss only* | 0.8099 | 0.64 | **0.5621** |
 
-### Key Takeaways
-* **The Trade-off:** The results clearly highlight the trade-off between maximizing minority class metrics (Melanoma Recall) and maintaining overall classification stability. 
-* **Sampling vs. Loss Weighting:** While the hybrid approach achieved the highest Melanoma Recall ($0.6601$), it caused a severe drop in overall Accuracy ($0.6669$) and Macro F1 ($0.62$) due to oversampling-induced false positives.
-* **Why the Final Model was Chosen:** The **Inverse-frequency weighted loss** achieved the most optimal, clinically viable balance. It maintained a high Melanoma Recall ($0.6405$) while preserving strong overall classification capabilities (Accuracy: $0.8126$, Macro F1: $0.75$). This demonstrates that directly factoring class frequency into the loss function is the most effective strategy for this dataset.
-
----
-
-
 
 The results show that class imbalance handling has a significant impact on performance in medical image classification.
 
