@@ -102,7 +102,8 @@ For each method, the best model checkpoint was selected based on validation mela
 
 The dataset is highly imbalanced, with a large number of benign cases (melanocytic nevi) and relatively few melanoma cases.
 
-This imbalance presets the potential to affect model performance, especially for small classes such as melanoma. Since the main objective of this project is to improve melanoma classification performance, different imbalance-handling strategies were systematically evaluated.
+This imbalance can bias the model toward the majority class, significantly affecting its performance on minority classes like melanoma.
+Since the main objective of this project is to improve melanoma classification performance, different imbalance-handling strategies were systematically evaluated.
 
 The following five approaches were compared:
 
