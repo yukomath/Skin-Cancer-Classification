@@ -56,6 +56,7 @@ This imbalance highlights the challenge of training a robust classifier, particu
 ## Train / Validation / Test split
 The original challenge provides only training data, while the test set remains private. In this project, we instead use the dataset available on Kaggle and split it into training set 70%, validation set 15% and test set 15%.
 
+**Data Leakage Prevention:**
 To prevent data leakage, the split is performed at the lesion level, ensuring that images from the same lesion do not appear across different subsets.
 
 ---
